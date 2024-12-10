@@ -5,8 +5,8 @@
 int main ()
 {
 int n;
+/* check the if statement */
 
-// Initialize or input a value for 'n'
     printf("The number ");
     scanf("%d", &n);
 
