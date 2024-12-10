@@ -5,18 +5,19 @@
 /* betty style doc for function main goes there */
 int main(void)
 {
-int n;
+    int n;
 
-srand(time(0));
-n = rand() - RAND_MAX / 2;
+    srand(time(0));
+    n = rand() - RAND_MAX / 2;
 
-/* Check if the number is positive, zero, or negative */
-if (n > 0) {
-printf("The number is positive.\n");
-} else if (n == 0) {
-printf("The number is zero.\n");
-} else {
-printf("The number is negative.\n");
+    /* Print the number and its classification */
+    if (n > 0) {
+        printf("%d is positive\n", n);
+    } else if (n == 0) {
+        printf("%d is zero\n", n);
+    } else {
+        printf("%d is negative\n", n);
+    }
+    return 0;
 }
-return 0;
-}
+
