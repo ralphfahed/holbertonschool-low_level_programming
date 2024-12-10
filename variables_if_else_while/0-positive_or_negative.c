@@ -7,7 +7,7 @@ int main ()
 int n;
 
 // Initialize or input a value for 'n'
-    printf("Enter a number: ");
+    printf("The number ");
     scanf("%d", &n);
 
 if (n>0 ){
