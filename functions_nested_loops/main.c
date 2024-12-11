@@ -1,8 +1,9 @@
-#include "1-alphabet.h"
+/* Declare the print_alphabet function */
+void print_alphabet(void);
 
-/* Main function */
 int main(void)
 {
     print_alphabet();
     return (0);
 }
+
