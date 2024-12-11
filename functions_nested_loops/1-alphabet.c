@@ -21,7 +21,7 @@ void print_alphabet(void)
 /* Main function */
 int main(void)
 {
-    print_alphabet(); // Call the function to print alphabet
+    print_alphabet();
     return 0;
 }
 
