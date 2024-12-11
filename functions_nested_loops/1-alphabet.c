@@ -5,15 +5,15 @@ void print_alphabet(void)
     char alpha = 'a';
     while (alpha <= 'z')
     {
-        putchar(alpha);  // Print each character one by one
+        putchar(alpha);
         alpha++;
     }
-    putchar('\n');  // Print a newline at the end
+    putchar('\n');
 }
 
 int main(void)
 {
-    print_alphabet();  // Call the function to print the alphabet
+    print_alphabet();
     return 0;
 }
 
