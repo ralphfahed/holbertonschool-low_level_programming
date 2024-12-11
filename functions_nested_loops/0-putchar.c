@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-write(1, "_putchar\n", 9); /*  Use write to print "_putchar" followed by a newline */
+write(1, "_putchar\n", 9); /* print "_putchar" followed by a newline */
 return (0);
 }
