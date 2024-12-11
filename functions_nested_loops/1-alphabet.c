@@ -1,14 +1,21 @@
 #include <stdio.h>
 
+void print_alphabet(void);
+
+int _putchar(char c)
+{
+    return putchar(c);
+}
+
 void print_alphabet(void)
 {
     char alpha = 'a';
     while (alpha <= 'z')
     {
-        putchar(alpha);
+        _putchar(alpha);
         alpha++;
     }
-    putchar('\n');
+    _putchar('\n');
 }
 
 int main(void)
@@ -16,4 +23,3 @@ int main(void)
     print_alphabet();
     return 0;
 }
-
