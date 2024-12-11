@@ -14,14 +14,14 @@ int main(void)
 int num;
 for (num = 0; num <= 9; num++)
 {
-putchar(num + '0'); // Print the digit
+putchar(num + '0');
 
 if (num != 9)
 {
-putchar(','); // Print the comma
-putchar(' '); // Print the space
+putchar(',');
+putchar(' ');
 }
 }
-putchar('\n'); // Print a newline at the end
+putchar('\n');
 return (0);
 }
