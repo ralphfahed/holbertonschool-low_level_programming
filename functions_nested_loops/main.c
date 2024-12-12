@@ -1,16 +1,20 @@
-#include <stdio.h>
-#include "main.h"  
+#include "main.h"
 
-/* to check if c is lower or upper case */
+/**
+ * main - Check the code for the _islower function.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int r;
 
-int main() {
-    char c;
-
-    c = 'a';
-    printf("_islower('%c') = %d\n", c, _islower(c));  // Should return 1
-
-    c = 'A';
-    printf("_islower('%c') = %d\n", c, _islower(c));  // Should return 0
-
+    r = _islower('H');
+    _putchar(r + '0');
+    r = _islower('o');
+    _putchar(r + '0');
+    r = _islower(108);
+    _putchar(r + '0');
+    _putchar('\n');
     return (0);
 }
