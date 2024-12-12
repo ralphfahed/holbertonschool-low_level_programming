@@ -5,7 +5,6 @@
 /**
  * more_numbers - print numbers from 0 to 9
  *
- * 
  * return : return the numbers
  */
 
