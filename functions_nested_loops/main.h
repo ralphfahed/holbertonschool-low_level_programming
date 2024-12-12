@@ -1,7 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int _putchar(char c);
-void print_alphabet_x10(void);
+int _islower(int c);  // Declare the function _islower
 
-#endif /* MAIN_H */
+#endif
