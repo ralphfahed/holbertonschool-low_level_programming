@@ -1,27 +1,19 @@
 #include "main.h"
 
 /**
- * print_alphabet - Prints the alphabet in lowercase 10 times,
- *                  followed by a newline.
+ * print_alphabet - Prints the alphabet in lowercase followed by a new line
  */
 void print_alphabet(void)
 {
-    char buffer[270]; /* 26 letters + newline * 10 = 270 characters */
-    int i;            /* Loop counter for 10 iterations */
-    int j;            /* Loop counter for alphabet characters */
-    int index = 0;    /* Index for the buffer */
+    char alphabet[] = "abcdefghijklmnopqrstuvwxyz"; /* Define the alphabet string */
+    int i;  /* Declare 'i' before the loop */
 
-    /* Build the output in a buffer */
-    for (i = 0; i < 10; i++) {
-        for (j = 'a'; j <= 'z'; j++) {
-            buffer[index++] = j;
-        }
-        buffer[index++] = '\n';
+    /* Loop through the string and print each character */
+    for (i = 0; alphabet[i] != '\0'; i++)
+    {
+        _putchar(alphabet[i]);  /* Print each character */
     }
 
-    /* Use _putchar to print the buffer */
-    for (i = 0; i < index; i++) {
-        _putchar(buffer[i]);
-    }
+    _putchar('\n');  /* Print a newline character */
 }
 
