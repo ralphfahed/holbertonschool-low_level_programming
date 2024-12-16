@@ -16,7 +16,7 @@ for (length = 0; s[length] != '\0'; length++)
 ;
 for (rev = length - 1; rev >= 0; rev--)
 {
-putchar(s[rev]);
+write(1, &s[rev], 1);
 }
-putchar('\n');
+write(1, '\n', 1);
 }
