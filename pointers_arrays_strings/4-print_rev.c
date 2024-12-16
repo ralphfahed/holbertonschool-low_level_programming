@@ -18,5 +18,5 @@ for (rev = length - 1; rev >= 0; rev--)
 {
 write(1, &s[rev], 1);
 }
-write(1, '\n', 1);
+write(1, "\n", 1);
 }
