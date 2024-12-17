@@ -5,6 +5,7 @@
  * _strcmp - Compares two strings lexicographically.
  * @s1: The first string.
  * @s2: The second string.
+ * Return:
  *   0 if the strings are equal.
  *   A negative value if s1 is less than s2.
  *   A positive value if s1 is greater than s2.
