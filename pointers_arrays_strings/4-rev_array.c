@@ -9,7 +9,6 @@
  *
  * Description: This function takes an array of integers and its size as input.
  * It reverses the elements of the array in-place.
- * 
  * Return: Nothing.
  */
 void reverse_array(int *a, int n)
