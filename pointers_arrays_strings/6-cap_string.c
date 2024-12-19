@@ -9,29 +9,29 @@
 char *cap_string(char *s)
 {
 	int i = 0;
-	int first = 1; /* 1 indicates the start of a new word */
+	int first = 0; /* 1 indicates the start of a new word */
 
 	while (s[i] != '\0')
 	{
 		/* Check if the current character is a letter */
 		if (s[i] >= 'a' && s[i] <= 'z')
 		{
-			if (first == 1)
+			if (first == 0)
 			{
 				s[i] = s[i] - 32; /* Convert to uppercase */
 			}
-			first = 0; /* Reset flag since we're inside a word */
+			first = 1; /* Reset flag since we're inside a word */
 		}
 		else if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' ||
 			 s[i] == ',' || s[i] == ';' || s[i] == '.' ||
 			 s[i] == '!' || s[i] == '?' || s[i] == '"' ||
 			 s[i] == '(' || s[i] == ')' || s[i] == '{' || s[i] == '}')
 		{
-			first = 1; /* Set flag for the next character to start a new word */
+			first = 0; /* Set flag for the next character to start a new word */
 		}
 		else
 		{
-			first = 0; /* For non-separator, reset the flag */
+			first = 1; /* For non-separator, reset the flag */
 		}
 		i++;
 	}
