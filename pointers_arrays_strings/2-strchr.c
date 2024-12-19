@@ -19,12 +19,6 @@ char *_strchr(char *s, char c)
 		}
 		s++;
 	}
-
-	if (*s == c) /* Check if c is the null terminator */
-	{
-		return (s);
-	}
-
 	return (NULL); /* Return NULL if no match is found */
 }
 
