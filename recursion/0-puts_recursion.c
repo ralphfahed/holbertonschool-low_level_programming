@@ -8,11 +8,11 @@ void _puts_recursion(char *s)
 {
 	if (*s == '\0') /* Base case: if the string ends */
 	{
-		putchar('\n'); /* Print a newline and stop recursion */
+		write(1, "\n", 1); /* Print a newline and stop recursion */
 		return;
 	}
 
-	putchar(*s); /* Print the current character */
+	write(1, s, 1); /* Print the current character */
 	_puts_recursion(s + 1); /* Recursive call with the next character */
 }
 
