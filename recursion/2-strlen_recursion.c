@@ -5,7 +5,7 @@
  *
  * Return: The length of the string.
  */
-int _strlen(char *s)
+int _strlen_recursion(char *s)
 {
 int length = 0;
 while (*s != '\0')/*Traverse the string until the null terminator*/
