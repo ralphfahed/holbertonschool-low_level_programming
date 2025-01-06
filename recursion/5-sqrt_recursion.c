@@ -4,23 +4,27 @@
 /**
  * _sqrt_recursion - Function to find the natural square root of n
  * @n: The number to find the square root of
- * @guess: The current guess for the square root
  * Return: The natural square root of n or -1 if it doesn't exist
  */
-int _sqrt_recursion(int n, int guess)
+int _sqrt_recursion(int n)
 {
-	if (n < 0)
+	/**
+	 * find_sqrt - Helper function to recursively find the square root
+	 * @n: The number to find the square root of
+	 * @guess: The current guess for the square root
+	 * Return: The natural square root of n or -1 if it doesn't exist
+	 */
+	int find_sqrt(int n, int guess)
 	{
-		return (-1); /* Negative numbers don't have real square roots */
+		if (n < 0)
+			return (-1);
+		if (guess * guess == n)
+			return (guess);
+		if (guess * guess > n)
+			return (-1);
+		return (find_sqrt(n, guess + 1));
 	}
-	if (guess * guess == n)
-	{
-		return (guess); /* Found the square root */
-	}
-	if (guess * guess > n)
-	{
-		return (-1); /* No natural square root */
-	}
-	return (_sqrt_recursion(n, guess + 1)); /* Recursively check the next guess */
+
+	return (find_sqrt(n, 1));
 }
 
