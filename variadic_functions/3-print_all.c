@@ -1,51 +1,40 @@
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 void print_all(const char * const format, ...)
 {
     va_list args;
     unsigned int i = 0;
-    char c;
-    int d;
-    float f;
     char *s;
+    int first = 1;
 
     va_start(args, format);
 
     while (format && format[i])
     {
-        if (i > 0)
+        if (!first)
             printf(", ");
+        first = 0;
 
-        switch (format[i])
+        if (format[i] == 'c' || format[i] == 'i' || format[i] == 'f' || format[i] == 's')
         {
-        case 'c':
-            c = va_arg(args, int); /* 'char' is promoted to 'int' when passed through 'va_arg' */
-            printf("%c", c);
-            break;
-        case 'i':
-            d = va_arg(args, int);
-            printf("%d", d);
-            break;
-        case 'f':
-            f = va_arg(args, double); /* 'float' is promoted to 'double' */
-            printf("%f", f);
-            break;
-        case 's':
-            s = va_arg(args, char *);
-            if (s)
-                printf("%s", s);
-            else
-                printf("(nil)");
-            break;
-        default:
-            break;
+            if (format[i] == 'c')
+                printf("%c", va_arg(args, int));
+            if (format[i] == 'i')
+                printf("%d", va_arg(args, int));
+            if (format[i] == 'f')
+                printf("%f", va_arg(args, double));
+            if (format[i] == 's')
+            {
+                s = va_arg(args, char *);
+                printf("%s", s ? s : "(nil)");
+            }
         }
+
         i++;
     }
 
     va_end(args);
-
     printf("\n");
 }
 
