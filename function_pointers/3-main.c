@@ -20,6 +20,13 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 
+	/* Check if the operator is a single character */
+	if (argv[2][1] != '\0')
+	{
+		printf("Error\n");
+		return (99);
+	}
+
 	num1 = atoi(argv[1]); /* Convert first argument to integer */
 	num2 = atoi(argv[3]); /* Convert second argument to integer */
 
