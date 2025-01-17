@@ -1,47 +1,51 @@
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 
-/**
- * print_all - Prints anything based on the format provided
- * @format: The list of types of arguments passed to the function
- * 
- * Return: Nothing
- */
 void print_all(const char * const format, ...)
 {
     va_list args;
-    int i = 0;
-    char *str;
+    unsigned int i = 0;
+    char c;
+    int d;
+    float f;
+    char *s;
 
     va_start(args, format);
 
-    while (format && format[i] != '\0')  /* Loop through the format string */
+    while (format && format[i])
     {
-        if (i != 0)  /* Print separator if it's not the first argument */
+        if (i > 0)
             printf(", ");
 
-        if (format[i] == 'c' || format[i] == 'i' || format[i] == 'f' || format[i] == 's')  /* Handle types */
+        switch (format[i])
         {
-            if (format[i] == 'c')  /* Handle char */
-                printf("%c", va_arg(args, int));  /* char is promoted to int in va_arg */
-            if (format[i] == 'i')  /* Handle int */
-                printf("%d", va_arg(args, int));
-            if (format[i] == 'f')  /* Handle float */
-                printf("%f", va_arg(args, double));  /* float is promoted to double in va_arg */
-            if (format[i] == 's')  /* Handle string */
-            {
-                str = va_arg(args, char *);
-                if (str)
-                    printf("%s", str);
-                else
-                    printf("(nil)");
-            }
+        case 'c':
+            c = va_arg(args, int); /* 'char' is promoted to 'int' when passed through 'va_arg' */
+            printf("%c", c);
+            break;
+        case 'i':
+            d = va_arg(args, int);
+            printf("%d", d);
+            break;
+        case 'f':
+            f = va_arg(args, double); /* 'float' is promoted to 'double' */
+            printf("%f", f);
+            break;
+        case 's':
+            s = va_arg(args, char *);
+            if (s)
+                printf("%s", s);
+            else
+                printf("(nil)");
+            break;
+        default:
+            break;
         }
-
-        i++;  /* Move to the next character in the format string */
+        i++;
     }
 
-    printf("\n");  /* Print a new line at the end */
-    va_end(args);  /* Clean up va_list */
+    va_end(args);
+
+    printf("\n");
 }
 
