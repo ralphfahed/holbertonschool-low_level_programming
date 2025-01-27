@@ -30,8 +30,26 @@ list_t *add_node(list_t **head, const char *str)
     new_node->next = *head;
     *head = new_node;
 
-    printf("[%u] %s\n", new_node->len, new_node->str); /* Print length and string */
-
     return (new_node);
+}
+
+/**
+ * print_list - Prints all the elements of a list_t list.
+ * @h: The list_t list to be printed.
+ *
+ * Return: The number of nodes printed.
+ */
+size_t print_list(const list_t *h)
+{
+    size_t count = 0;
+
+    while (h != NULL)
+    {
+        printf("[%u] %s\n", h->len, h->str);
+        h = h->next;
+        count++;
+    }
+
+    return (count);
 }
 
