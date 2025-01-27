@@ -22,7 +22,7 @@ size_t print_list(const list_t *h)
 		count++;
 	}
 
-	printf("-> %zu elements\n", count);
+	printf("-> %lu elements\n", count);
 
 	return (count);
 }
