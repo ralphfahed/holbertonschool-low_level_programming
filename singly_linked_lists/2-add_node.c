@@ -21,12 +21,11 @@ list_t *add_node(list_t **head, const char *str)
     if (new_node->str == NULL)
         return (NULL);
 
-while (new_node->str[len] != '\0')
-        len++;
+    new_node->len = strlen(new_node->str);
     new_node->next = *head;
     *head = new_node;
 
-    printf("[%u] %s\n", new_node->len, new_node->str);
+    printf("[%u] %s\n", new_node->len, new_node->str); /* Print length and string */
 
     return (new_node);
 }
