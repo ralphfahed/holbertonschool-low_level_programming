@@ -1,3 +1,4 @@
+#include <stdio.h>  /* Include the stdio.h header for printf */
 #include "lists.h"
 
 /**
