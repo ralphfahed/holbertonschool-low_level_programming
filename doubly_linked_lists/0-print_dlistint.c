@@ -1,4 +1,4 @@
-#include <stdio.h>  /* Include the stdio.h header for printf */
+#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -9,16 +9,16 @@
  */
 size_t print_dlistint(const dlistint_t *h)
 {
-    size_t count = 0;  /* Count of nodes */
+	size_t count = 0; /* Count of nodes */
 
-    /* Traverse the list using the given pointer h */
-    while (h != NULL)   /* Until we reach the last node */
-    {
-        printf("%d\n", h->n);  /* Print the value of the current node */
-        h = h->next;  /* Move to the next node */
-        count++;  /* Increment the node count */
-    }
+	/* Traverse the list until reaching the last node */
+	while (h != NULL)
+	{
+		printf("%d\n", h->n); /* Print the value of the current node */
+		h = h->next; /* Move to the next node */
+		count++; /* Increment the node count */
+	}
 
-    return count;  /* Return the total number of nodes */
+	return (count); /* Return the total number of nodes */
 }
 
