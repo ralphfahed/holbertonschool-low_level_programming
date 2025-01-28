@@ -13,13 +13,19 @@
  */
 typedef struct dlistint_s
 {
-    int n;
-    struct dlistint_s *prev;
-    struct dlistint_s *next;
+    int n;                  /* Integer data stored in the node */
+    struct dlistint_s *prev;/* Pointer to the previous node */
+    struct dlistint_s *next;/* Pointer to the next node */
 } dlistint_t;
 
-/* Function prototype for print_dlistint */
+/* Function prototype to print all elements of a dlistint_t list */
 size_t print_dlistint(const dlistint_t *h);
+
+/* Function prototype to get the length of the dlistint_t list */
 size_t dlistint_len(const dlistint_t *h);
+
+/* Function prototype to add a node at the beginning of a dlistint_t list */
+dlistint_t *add_dnodeint(dlistint_t **head, const int n);
+
 #endif /* LISTS_H */
 
