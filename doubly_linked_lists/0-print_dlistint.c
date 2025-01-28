@@ -1,34 +1,23 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * main - check the code
+ * print_dlistint - Prints all the elements of a doubly linked list.
+ * @h: Pointer to the head of the list.
  *
- * Return: Always EXIT_SUCCESS.
+ * Return: The number of nodes.
  */
-int main(void)
+size_t print_dlistint(const dlistint_t *h)
 {
-    dlistint_t *head;
-    dlistint_t *new;
-    dlistint_t hello = {8, NULL, NULL};
-    size_t n;
+    size_t count = 0;  /* Count of nodes */
 
-    head = &hello;
-    new = malloc(sizeof(dlistint_t));
-    if (new == NULL)
+    /* Traverse the list using the given pointer h */
+    while (h != NULL)   /* Until we reach the last node */
     {
-        dprintf(2, "Error: Can't malloc\n");
-        return (EXIT_FAILURE);
+        printf("%d\n", h->n);  /* Print the value of the current node */
+        h = h->next;  /* Move to the next node */
+        count++;  /* Increment the node count */
     }
-    new->n = 9;
-    head->prev = new;
-    new->next = head;
-    new->prev = NULL;
-    head = new;
-    n = print_dlistint(head);
-    printf("-> %lu elements\n", n);
-    free(new);
-    return (EXIT_SUCCESS);
+
+    return count;  /* Return the total number of nodes */
 }
+
