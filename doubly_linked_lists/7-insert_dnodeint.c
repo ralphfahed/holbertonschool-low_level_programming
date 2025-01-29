@@ -78,7 +78,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	/* Check if we reached the end or if idx is out of bounds */
 	if (temp == NULL)
-		return (add_dnodeint_end(h, n));
+		return (NULL);
 
 	/* Insert the new node at the desired position */
 return (insert_at_index(h, temp, n));
