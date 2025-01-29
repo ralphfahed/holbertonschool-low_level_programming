@@ -32,8 +32,8 @@ dlistint_t *create_new_node(int n)
 dlistint_t *insert_at_index(dlistint_t **h, dlistint_t *temp, int n)
 {
 
-(void)h;
 dlistint_t *new_node;
+(void)h;
 new_node = create_new_node(n);
 
 	if (!new_node)
