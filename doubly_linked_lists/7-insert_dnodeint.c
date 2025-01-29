@@ -78,7 +78,7 @@ dlistint_t *insert_node_after(dlistint_t *temp, dlistint_t *new_node)
  *
  * Return: Pointer to the new node, or NULL if insertion fails
  */
-dlistint_t *insert_at_index(dlistint_t **h, dlistint_t *temp, int n)
+dlistint_t *insert_at_index(dlistint_t *temp, int n)
 {
 	dlistint_t *new_node;
 
