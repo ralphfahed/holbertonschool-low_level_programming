@@ -5,6 +5,12 @@
 
 #define BUF_SIZE 1024
 
+/* Function Prototypes */
+int check_args(int argc);
+int open_file(const char *filename, int flags, mode_t mode);
+void copy_content(int fd_from, int fd_to, const char *file_to);
+void close_file(int fd);
+
 /**
  * check_args - Checks the number of arguments passed to the program
  * @argc: Argument count
