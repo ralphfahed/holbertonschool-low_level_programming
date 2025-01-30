@@ -28,24 +28,24 @@ char *allocate_buffer(size_t size)
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
+	int fd; /*for open*/
 	ssize_t bytes_read, bytes_written;
 	char *buffer;
-
+/*chouf exa file mawjoud*/
 	if (filename == NULL)
 		return (0);
-
+/*open file with readonly*/
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
-
+/*allocate memory for the buffer*/
 	buffer = allocate_buffer(letters);
 	if (buffer == NULL)
 	{
 		close(fd);
 		return (0);
 	}
-
+/*for read file*/
 	bytes_read = read(fd, buffer, letters);
 	if (bytes_read == -1)
 	{
@@ -53,7 +53,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		close(fd);
 		return (0);
 	}
-
+/*write file*/
 	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
 	free(buffer);
 	close(fd);
