@@ -42,28 +42,33 @@ int open_file(const char *filename, int flags, mode_t mode)
 }
 
 /**
- * copy_content - Copies the content from one file to another
- * @fd_from: Source file descriptor
- * @fd_to: Destination file descriptor
+ * copy_content - Copies content from one file to another.
+ * @fd_from: File descriptor of the source file.
+ * @fd_to: File descriptor of the destination file.
+ * @file_to: Name of the destination file for error reporting.
  */
-void copy_content(int fd_from, int fd_to)
+void copy_content(int fd_from, int fd_to, const char *file_to)
 {
-	ssize_t bytes_read, bytes_written;
 	char buffer[BUF_SIZE];
+	ssize_t bytes_read, bytes_written;
 
 	while ((bytes_read = read(fd_from, buffer, BUF_SIZE)) > 0)
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);
-		if (bytes_written != bytes_read)
+		if (bytes_written == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			dprintf(2, "Error: Can't write to %s\n", file_to);
+			close_file(fd_from);
+			close_file(fd_to);
 			exit(99);
 		}
 	}
 
 	if (bytes_read == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(2, "Error: Can't read from file %s\n", file_to);
+		close_file(fd_from);
+		close_file(fd_to);
 		exit(98);
 	}
 }
@@ -95,7 +100,7 @@ int main(int argc, char *argv[])
 	check_args(argc);
 	fd_from = open_file(argv[1], O_RDONLY, 0);
 	fd_to = open_file(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	copy_content(fd_from, fd_to);
+	copy_content(fd_from, fd_to, argv[2]);
 	close_file(fd_from);
 	close_file(fd_to);
 
