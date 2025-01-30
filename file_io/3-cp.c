@@ -41,8 +41,16 @@ int open_file(const char *filename, int flags, mode_t mode)
 
 	if (fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", filename);
-		exit(98);
+		if (flags == O_RDONLY)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", filename);
+			exit(98);
+		}
+		else if (flags == O_WRONLY || flags == (O_WRONLY | O_CREAT | O_TRUNC))
+		{
+			dprintf(2, "Error: Can't write to %s\n", filename);
+			exit(99);
+		}
 	}
 	return (fd);
 }
@@ -60,6 +68,7 @@ void copy_content(int fd_from, int fd_to, const char *file_to)
 
 	while ((bytes_read = read(fd_from, buffer, BUF_SIZE)) > 0)
 	{
+		/* Ensure correct write return value */
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
