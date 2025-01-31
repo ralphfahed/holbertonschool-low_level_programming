@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * flip_bits - Counts the number of bits to flip to convert one number to another.
+ * flip_bits - Counts the number of bits to flip to convert one number to anot
  * @n: The first number.
  * @m: The second number.
  *
